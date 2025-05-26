@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rotating Image</title>
+  <style>
+    /* Full-screen setup */
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-color: rgb(255, 255, 255);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Image styling */
+    #rotating-image {
+      width: 200px;
+      height: 200px;
+      /* Smooth rotation */
+      transform: rotate(0deg);
+      transition: transform 0.01s linear;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Image to rotate -->
+  <img id="rotating-image" src="C:\Users\Usuário\Desktop\Henrique\Bagunça\logo\logo_quadrado.png" alt="Rotating" />
+
+  <script>
+    let angle = 0;
+    const image = document.getElementById('rotating-image');
+
+    function rotate() {
+      angle = (angle + 1) % 360;
+      image.style.transform = `rotate(${angle}deg)`;
+      requestAnimationFrame(rotate); // smoother than setInterval
+    }
+
+    rotate();
+  </script>
+
+</body>
+</html>
